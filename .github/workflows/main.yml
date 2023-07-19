@@ -13,6 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-        
-      - name: Build the app
-        run: xcodebuild -workspace LearnCICD.xcworkspace -scheme LearnCICD clean build CODE_SIGNING_ALLOWED=NO
+      - name: Build App
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+    
+   
