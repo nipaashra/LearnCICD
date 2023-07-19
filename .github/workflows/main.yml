@@ -14,11 +14,11 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Build App
-        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO DEVELOPMENT_TEAM=5H3JS4JXK5
 
 
       - name: Archive App
-        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release archive CODE_SIGNING_ALLOWED=NO -archivePath "build/LearnCICD.xcarchive"
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release archive CODE_SIGNING_ALLOWED=NO -archivePath "build/LearnCICD.xcarchive" DEVELOPMENT_TEAM=5H3JS4JXK5
         
 
       - name: Export IPA
