@@ -15,4 +15,4 @@ jobs:
         
         
       - name: Build the app
-        run: xcodebuild -workspace LearnCICD.xcodeproj -scheme LearnCICD clean build CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -workspace LearnCICD.xcworkspace -scheme LearnCICD clean build CODE_SIGNING_ALLOWED=NO
