@@ -15,5 +15,22 @@ jobs:
         
       - name: Build App
         run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
-    
-   
+
+
+      - name: Archive App
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release archive CODE_SIGNING_ALLOWED=NO -archivePath "build/LearnCICD.xcarchive"
+      
+      - name: Export IPA
+        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "ExportOptions.plist" -exportPath "build"
+        
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: "nipagithub@gmail.com"
+          password: "Nipa@123"
+          subject: "Generated IPA"
+          body: "Please find the attached IPA file."
+          to: siddhpuraamitr@gmail.com
+          attachments: "build/MyApp.ipa"
