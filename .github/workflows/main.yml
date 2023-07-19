@@ -13,11 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Set up Xcode
-        uses: actions/setup-xcode@v2
-        with:
-          xcode-version: '14.3.1'
-        
       - name: Build App
         run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO DEVELOPMENT_TEAM=5H3JS4JXK5
 
