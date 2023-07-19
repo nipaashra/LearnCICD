@@ -20,11 +20,9 @@ jobs:
       - name: Archive App
         run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release archive CODE_SIGNING_ALLOWED=NO -archivePath "build/LearnCICD.xcarchive"
         
-    
-        
-      - name: Export IPA
-        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist" -exportPath "build" -allowProvisioningUpdates -allowProvisioningDeviceRegistration
 
+      - name: Export IPA
+        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist" -exportPath "build" -allowProvisioningUpdates -allowProvisioningDeviceRegistration DEVELOPMENT_TEAM=5H3JS4JXK5
 
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
