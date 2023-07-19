@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build iOS
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Install dependencies
+        run: |
+          sudo gem install bundler
+          bundle install
+          bundle exec pod install --repo-update
+        
+      - name: Build the app
+        run: xcodebuild -workspace LearnCICD.xcworkspace -scheme LearnCICD clean build CODE_SIGNING_ALLOWED=NO
