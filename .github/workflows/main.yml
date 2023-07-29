@@ -17,7 +17,7 @@ jobs:
         run: xcodebuild clean -project "LearnCICD.xcodeproj" -scheme "LearnCICD"
         
       - name: Build App
-        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS"
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
 
 
       - name: Archive App
