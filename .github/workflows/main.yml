@@ -25,7 +25,7 @@ jobs:
         
 
       - name: Export IPA
-        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist" -configuration Release build CODE_SIGNING_ALLOWED=NO 
+        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist" -exportPath "build" -allowProvisioningUpdates -allowProvisioningDeviceRegistration
 
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
