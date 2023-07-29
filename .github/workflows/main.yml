@@ -21,11 +21,11 @@ jobs:
 
 
       - name: Archive App
-        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" 
+        run: xcodebuild -project "LearnCICD.xcodeproj" -scheme "LearnCICD" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
         
 
       - name: Export IPA
-        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist"
+        run: xcodebuild -exportArchive -archivePath "build/LearnCICD.xcarchive" -exportOptionsPlist "LearnCICD/Info.plist" -configuration Release build CODE_SIGNING_ALLOWED=NO
 
       - name: Send Email
         uses: dawidd6/action-send-mail@v3
